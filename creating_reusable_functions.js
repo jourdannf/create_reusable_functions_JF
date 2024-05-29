@@ -56,3 +56,40 @@ console.log(averageOfNums(numArray));
 console.log(longestString(stringArray));
 console.log(stringsLongerThanNum(stringArray, 6));
 printAllNumbersUpTo(3);
+
+//Part Two: Thinking Methodically
+
+const data = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }];
+
+const sortedData = data.sort((a,b) => {
+    return a.age - b.age;
+});
+
+const filteredData = data.filter((person) => {
+    console.log(Number(person.age))
+    return Number(person.age) > 50;
+});
+
+console.log(sortedData);
+console.log(filteredData);
+
+const mapData = data.map((person) => {
+    person.job = person.occupation;
+    delete person["occupation"];
+
+    person.age = String(Number(person.age) + 1);
+    return person;
+})
+
+console.log(mapData);
+
+const averageAge = function () {
+    let sum = data.reduce((accumulator, currentVal) => {
+        return accumulator += Number(currentVal.age);
+    }, 0);
+
+    return sum/data.length;
+
+}
+
+console.log(averageAge());
