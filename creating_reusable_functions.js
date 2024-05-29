@@ -93,3 +93,38 @@ const averageAge = function () {
 }
 
 console.log(averageAge());
+
+//Part Three: Thinking Critically
+
+//Take an object and increment its age field
+function increaseAge(object) {
+    if (!Object.keys(object).includes("age")){
+        object.age = 0;
+    }
+    object.age++;
+
+    const currentDate = new Date();
+
+    object.updated_at = currentDate;
+
+    return object;    
+}
+
+//Take an object, make a copy, increment age field of the copy, return copy
+function increaseAgeCopy(object) {
+    objectCopy = {...object};
+
+    if (!Object.keys(objectCopy).includes("age")){
+        objectCopy.age = 0;
+    }
+    objectCopy.age++;
+
+    const currentDate = new Date();
+    objectCopy.updated_at = currentDate;
+
+    return objectCopy;
+}
+
+console.log(increaseAgeCopy(data[0]));
+// console.log(increaseAge(data[0]));
+console.log(data[0]);
